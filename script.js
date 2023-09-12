@@ -17,10 +17,10 @@ gameButtons.forEach(button => {
     button.addEventListener('mouseenter', () => {
         if (button.id === 'valorant-button') {
             previousBackgroundImage = body.style.backgroundImage;
-            body.style.backgroundImage = 'url("Valorant.gif")';
+            body.style.backgroundImage = 'url("./valorant.gif")';
         } else if (button.id === 'dota2-button') {
             previousBackgroundImage = body.style.backgroundImage;
-            body.style.backgroundImage = 'url("Dota2.gif")';
+            body.style.backgroundImage = 'url("./dota2.gif")';
         }
         body.style.backgroundSize = 'cover';
         body.style.backgroundRepeat = 'no-repeat';
