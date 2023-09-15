@@ -213,10 +213,12 @@ footer {
 
     .navbar a {
         font-size: auto; 
+        margin: 1vh;
     }
 
     .mode-toggle label {
         font-size: auto; 
+        margin: 1vh;
     }
 
     footer {
