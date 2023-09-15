@@ -29,12 +29,12 @@ body {
 }
 
 .navbar a:hover {
-    color: #000000
+    color: #D1F2FF;
 }
 
 .light-mode {
     background-color: #ffffff;
-    color: #333333;
+    color: #121212;
 }
 
 .dark-mode {
@@ -217,7 +217,7 @@ footer {
     }
 
     .mode-toggle label {
-        font-size: auto; 
+        font-size: 130%; 
         margin: 1vh;
     }
 
