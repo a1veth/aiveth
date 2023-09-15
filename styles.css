@@ -207,22 +207,22 @@ footer {
     }
 
     .navbar {
-        align-items: center;
-        font-size: auto;
+        align-items: flex-start; 
+        flex-direction: column;
     }
 
     .navbar a {
-        margin: 3vh;
+        font-size: auto; 
     }
 
     .mode-toggle label {
-        font-size: auto;
-        margin: 2vh;
+        font-size: auto; 
     }
-  
+
     footer {
         font-size: 70%;
     }
 }
+
 
   
