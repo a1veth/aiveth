@@ -6,6 +6,12 @@ const moonIcon = document.querySelector('.moon');
 const sunnyIcon = document.querySelector('.sunny');
 
 document.addEventListener("DOMContentLoaded", function () {
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    const moonIcon = document.querySelector('.moon');
+    const sunnyIcon = document.querySelector('.sunny');
+
+    // Cek apakah darkMode sebelumnya telah tersimpan di localStorage
     const savedDarkMode = localStorage.getItem('darkMode');
     if (savedDarkMode === 'enabled') {
         body.classList.add('dark-mode');
@@ -16,12 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const savedIconStyle = localStorage.getItem('iconStyle');
+
     if (savedIconStyle === 'moon') {
         moonIcon.style.display = 'block';
         sunnyIcon.style.display = 'none';
-    } else {
+    } else if (savedIconStyle === 'sunny'){
         moonIcon.style.display = 'none';
         sunnyIcon.style.display = 'block';
+    } else {
+        moonIcon.style.display = 'block';
+        sunnyIcon.style.display = 'none'; 
     }
 
     darkModeToggle.addEventListener('change', () => {
@@ -36,9 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             moonIcon.style.display = 'block';
             sunnyIcon.style.display = 'none';
         }
-    });
 
-    darkModeToggle.addEventListener('change', function () {
         const iconStyle = darkModeToggle.checked ? 'sunny' : 'moon';
         localStorage.setItem('iconStyle', iconStyle);
     });
