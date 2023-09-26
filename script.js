@@ -1,16 +1,47 @@
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const gameButtons = document.querySelectorAll('.game-button');
-const body = document.body;
 let previousBackgroundImage = '';
+const gameButtons = document.querySelectorAll('.game-button');
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
+const moonIcon = document.querySelector('.moon');
+const sunnyIcon = document.querySelector('.sunny');
 
-darkModeToggle.addEventListener('change', () => {
-    if (darkModeToggle.checked) {
+document.addEventListener("DOMContentLoaded", function () {
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'enabled') {
         body.classList.add('dark-mode');
-        body.classList.remove('light-mode');
+        darkModeToggle.checked = true;
     } else {
         body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
+        darkModeToggle.checked = false;
     }
+
+    const savedIconStyle = localStorage.getItem('iconStyle');
+    if (savedIconStyle === 'moon') {
+        moonIcon.style.display = 'block';
+        sunnyIcon.style.display = 'none';
+    } else {
+        moonIcon.style.display = 'none';
+        sunnyIcon.style.display = 'block';
+    }
+
+    darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'enabled'); 
+            moonIcon.style.display = 'none';
+            sunnyIcon.style.display = 'block';
+        } else {
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'disabled'); 
+            moonIcon.style.display = 'block';
+            sunnyIcon.style.display = 'none';
+        }
+    });
+
+    darkModeToggle.addEventListener('change', function () {
+        const iconStyle = darkModeToggle.checked ? 'sunny' : 'moon';
+        localStorage.setItem('iconStyle', iconStyle);
+    });
 });
 
 gameButtons.forEach(button => {
@@ -28,21 +59,5 @@ gameButtons.forEach(button => {
 
     button.addEventListener('mouseleave', () => {
         body.style.backgroundImage = previousBackgroundImage; 
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const moonIcon = document.querySelector(".moon");
-    const sunnyIcon = document.querySelector(".sunny");
-    const darkModeToggle = document.querySelector("#dark-mode-toggle");
-
-    darkModeToggle.addEventListener("change", function() {
-        if (darkModeToggle.checked) {
-            moonIcon.style.display = "none";
-            sunnyIcon.style.display = "block";
-        } else {
-            moonIcon.style.display = "block";
-            sunnyIcon.style.display = "none";
-        }
     });
 });
