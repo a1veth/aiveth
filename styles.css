@@ -43,7 +43,7 @@ body {
 }
 
 header {
-    background-color: #272829;
+    background-color: #1b1b1b;
     color: #ffffff;
 }
 
@@ -79,7 +79,7 @@ nav {
 }
 
 .mode-toggle label :hover {
-    color: rgb(250, 189, 21);
+    color: rgb(255, 205, 66);
     transition: 0.2s ease;
 }
 
@@ -109,8 +109,9 @@ main {
     margin-top: 2vh;
 }
 
+
 footer {
-    background-color: #272829;
+    background-color: #1b1b1b;
     color: #ffffff;
     text-align: center;
     padding: 1rem 0;
